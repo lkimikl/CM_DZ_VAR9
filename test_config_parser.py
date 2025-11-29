@@ -18,7 +18,7 @@ class TestConfigParser(unittest.TestCase):
         self.assertEqual(self.parser.parse_string('"hello"'), "hello")
 
     def test_parse_array(self):
-        # Теперь array обрабатывается как отдельный токен
+        # array обрабатывается как отдельный токен
         tokens = ['array', '(', '1', ',', '2', ',', '3', ')']
         result, index = self.parser.parse_array(tokens, 0)
         self.assertEqual(result, [1, 2, 3])
