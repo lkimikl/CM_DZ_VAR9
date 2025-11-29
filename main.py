@@ -42,7 +42,7 @@ class ConfigParser:
         raise ValueError(f"Invalid string: {token}")
 
     def parse_array(self, tokens: List[str], index: int) -> tuple[List[Any], int]:
-        """Парсинг массивов array(значение, значение, ...)"""
+        """Парсинг массивов"""
         index += 1  # Пропускаем 'array'
 
         if index >= len(tokens) or tokens[index] != '(':
@@ -63,7 +63,7 @@ class ConfigParser:
         return values, index + 1
 
     def parse_constant_expression(self, tokens: List[str], index: int) -> tuple[Any, int]:
-        """Парсинг константных выражений @[операция арг1 арг2]"""
+        """Парсинг константных выражений"""
         index += 1  # Пропускаем '@['
 
         if index >= len(tokens):
@@ -146,7 +146,7 @@ class ConfigParser:
                 raise ValueError(f"Unknown value: {token}")
 
     def tokenize(self, text: str) -> List[str]:
-        """Токенизация с правильной обработкой @[ как одного токена"""
+        """Токенизация"""
         # Удаляем комментарии
         text = re.sub(r'//.*', '', text)
 
